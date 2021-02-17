@@ -1,5 +1,14 @@
 .App {
   height: 100vh;
   overflow: hidden;
+  direction: rtl;
 }
 
+.row {
+  display: flex;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}

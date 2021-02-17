@@ -1,9 +1,0 @@
-.box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 300px;
-  background-color: rgb(231, 108, 108);
-  margin: 10px;
-  scroll-snap-align: center;
-}
