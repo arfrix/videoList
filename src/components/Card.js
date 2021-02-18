@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import Text from '../common/Text'
+import classNames from 'classnames'
 import './Card.css'
 
 
@@ -15,7 +16,7 @@ export default function Card({data, containerScrollTop, key}) {
       videoRef.current.play()
   },[containerScrollTop])
   return (
-    <div className="card" ref={itemRef} >
+    <div className={classNames('card',{"card--active":isBlue})} ref={itemRef} >
       <div className="card__media">
         {isBlue ? 
         (<video ref={videoRef} width={videoWidth} height="240" controls autoplay muted>

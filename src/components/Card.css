@@ -2,11 +2,17 @@
   align-items: center;
   justify-content: center;
   height: 310px;
-  margin: 10px;
+  margin: 20px 10px;
   scroll-snap-align: center;
   border-radius: 5px;
   box-shadow: -3px 3px 6px rgba(0, 0, 0, 0.2);
   overflow: hidden;
+  transition: box-shadow 0.5s;
+}
+
+.card--active {
+  box-shadow: -6px 6px 6px rgba(0, 0, 0, 0.3);
+  background-color: rgb(241, 241, 241);
 }
 
 .card__info {
