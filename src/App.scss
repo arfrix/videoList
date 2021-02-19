@@ -1,7 +1,21 @@
-.App {
+@font-face{
+  font-family: IRsans;
+  src: url(./assets/fonts/IRANSansWeb.ttf);
+}
+
+.app {
   height: 100vh;
   overflow: hidden;
   direction: rtl;
+  font-family: IRsans;
+
+  &--loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    text-align: right;
+  }
 }
 
 .row {

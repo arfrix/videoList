@@ -27,8 +27,8 @@ function App() {
   
   
   return (
-    <div className="App">
-      {isLoading ? <div>looooading</div> : <Home /> }
+    <div className="app">
+      {isLoading ? <div className="app--loading">پستا دارن میان !!</div> : <Home /> }
     </div>
   );
 }

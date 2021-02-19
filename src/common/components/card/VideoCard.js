@@ -10,7 +10,8 @@ export default function VideoCard({data, containerScrollTop}) {
   const videoRef = useRef()
   const cardOffsetTop = cardRef.current ? cardRef.current.offsetTop : null
   const isOnProperPlaceToPlay = (cardOffsetTop - containerScrollTop) > 150 && (cardOffsetTop - containerScrollTop) < 400
-  const videoWidth = window.innerWidth - 20
+  const windowWidth = (window.innerWidth < 400) ? window.innerWidth : 420
+  const videoWidth = windowWidth - 20
 
   useEffect(() => {
     // for those browsers that can not support autoplay

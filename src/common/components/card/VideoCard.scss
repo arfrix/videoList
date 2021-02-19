@@ -2,14 +2,12 @@
   align-items: center;
   justify-content: center;
   height: 310px;
-  max-width: 400px;
-  margin: 20px auto;
+  margin: 20px 10px;
   scroll-snap-align: center;
   border-radius: 5px;
   box-shadow: -3px 3px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: box-shadow 0.5s;
-
   
   &--active {
     box-shadow: -6px 6px 6px rgba(0, 0, 0, 0.3);
@@ -18,7 +16,6 @@
   
   &__info {
     padding: 10px;
-
     
     &__profilePic {
       width: 50px;
