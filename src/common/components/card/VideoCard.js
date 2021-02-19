@@ -1,25 +1,26 @@
 import React, { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types';
-import Text from '../Text'
+import Text from '../text/Text'
 import classNames from 'classnames'
-import './VideoCard.css'
+import './VideoCard.scss'
 
 
-export default function VideoCard({data, containerScrollTop, key}) {
-  const itemRef = useRef()
+export default function VideoCard({data, containerScrollTop}) {
+  const cardRef = useRef()
   const videoRef = useRef()
-  const boxOffsetTop = itemRef.current ? itemRef.current.offsetTop : null
-  const isBlue = (boxOffsetTop - containerScrollTop) > 200 && (boxOffsetTop - containerScrollTop) < 400
+  const cardOffsetTop = cardRef.current ? cardRef.current.offsetTop : null
+  const isOnProperPlaceToPlay = (cardOffsetTop - containerScrollTop) > 200 && (cardOffsetTop - containerScrollTop) < 400
   const videoWidth = window.innerWidth - 20
 
   useEffect(() => {
+    // for those browsers that can not support autoplay
     if(videoRef.current)
       videoRef.current.play()
   },[containerScrollTop])
   return (
-    <div className={classNames('card',{"card--active":isBlue})} ref={itemRef} >
+    <div className={classNames('card',{"card--active":isOnProperPlaceToPlay})} ref={cardRef} >
       <div className="card__media">
-        {isBlue ? 
+        {isOnProperPlaceToPlay ? 
         (<video ref={videoRef} width={videoWidth} height="240" controls autoplay muted>
           <source src={data.attributes.preview_src} type="video/mp4"/>
         </video>

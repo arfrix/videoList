@@ -1,13 +1,13 @@
 import React, { useRef, useState } from 'react'
-import './Home.css'
-import VideoCard from '../common/components/text/card/VideoCard'
+import './Home.scss'
+import VideoCard from '../common/components/card/VideoCard'
 import {useSelector} from 'react-redux'
 
 
 export default function Home() {
   const postStore = useSelector(state => state.post)
 
-  const posts = postStore.posts.data
+  const posts =postStore.posts && postStore.posts.data
 
 
   const homeContainerRef = useRef()

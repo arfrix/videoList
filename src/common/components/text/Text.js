@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Text.css';
+import './Text.scss';
 
 
 export function Text({ size, color, children }) {

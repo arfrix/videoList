@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
+import './App.scss';
 import Home from './pages/Home'
 import {Fetch} from './common/Server'
 import {useSelector, useDispatch} from 'react-redux'
@@ -7,7 +7,6 @@ import ActionTypes from './actions/PostActionTypes'
 
 function App() {
 
-  const [data, setdata] = useState(null)
   const postStore = useSelector(state => state.post)
   const dispatch = useDispatch()
 
@@ -24,12 +23,12 @@ function App() {
 
   }, [])
 
-  const isPostLoading = postStore.postsLoading || !postStore.posts
+  const isLoading = postStore.postsLoading
   
   
   return (
     <div className="App">
-      {isPostLoading ? <div>looooading</div> : <Home data={postStore.posts.data}/> }
+      {isLoading ? <div>looooading</div> : <Home /> }
     </div>
   );
 }
