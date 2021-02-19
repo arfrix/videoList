@@ -1,11 +1,30 @@
 import ActionTypes from '../actions/PostActionTypes'
 
-const postReducer = (state = null, {type}) => {
+
+const initialState = {
+  getPostLoading: false ,
+  posts: null 
+}
+
+
+const postReducer = (state = initialState, {type, payload = {}}) => {
   switch (type) {
-    case ActionTypes.test:
+    case ActionTypes.GET_POSTS_REQUEST:
       return {
         ...state,
-        test: 'yeaaaaaaaaah'
+        postsLoading: true
+      }
+    case ActionTypes.GET_POSTS_SUCCESS:
+      return {
+        ...state,
+        posts: payload,
+        postsLoading: false
+      }
+    case ActionTypes.GET_POSTS_FAILED:
+      return {
+        ...state,
+        posts: null,
+        postsLoading: false
       }
     default:
       return state

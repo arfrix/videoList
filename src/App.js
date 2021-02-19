@@ -15,7 +15,7 @@ function App() {
   useEffect(async () => {
     const response = await Fetch('http://api.aparat.com/fa/v1/video/video/mostViewedVideos')
     setdata(response)
-    dispatch({type: ActionTypes.test})
+    dispatch({type: ActionTypes.GET_POSTS_REQUEST})
   }, [])
   
   

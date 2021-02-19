@@ -1,5 +1,7 @@
 const ActionTypes = {
-  test: 'test'
+  GET_POSTS_REQUEST: 'GET_POSTS_REQUEST',
+  GET_POSTS_SUCCESS: 'GET_POSTS_SUCCESS',
+  GET_POSTS_FAILED: 'GET_POSTS_FAILED'
 };
 
 export default ActionTypes;
