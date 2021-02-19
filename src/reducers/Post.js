@@ -2,7 +2,7 @@ import ActionTypes from '../actions/PostActionTypes'
 
 
 const initialState = {
-  getPostLoading: false ,
+  postsLoading: false ,
   posts: null 
 }
 
@@ -14,7 +14,7 @@ const postReducer = (state = initialState, {type, payload = {}}) => {
         ...state,
         postsLoading: true
       }
-    case ActionTypes.GET_POSTS_SUCCESS:
+    case ActionTypes.GET_POSTS_SUCCEED:
       return {
         ...state,
         posts: payload,

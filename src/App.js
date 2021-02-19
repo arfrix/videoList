@@ -1,27 +1,35 @@
-
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import Home from './pages/Home'
 import {Fetch} from './common/Server'
-import { useEffect, useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux'
 import ActionTypes from './actions/PostActionTypes'
 
 function App() {
 
   const [data, setdata] = useState(null)
-  const postStore = useSelector(state => state)
+  const postStore = useSelector(state => state.post)
   const dispatch = useDispatch()
 
   useEffect(async () => {
-    const response = await Fetch('http://api.aparat.com/fa/v1/video/video/mostViewedVideos')
-    setdata(response)
     dispatch({type: ActionTypes.GET_POSTS_REQUEST})
+    const response = await Fetch()
+    if(response){
+      dispatch({type: ActionTypes.GET_POSTS_SUCCEED, payload: response})
+    }else {
+      dispatch({type: ActionTypes.GET_POSTS_FAILED})
+
+    }
+
+
   }, [])
+
+  const isPostLoading = postStore.postsLoading || !postStore.posts
   
   
   return (
     <div className="App">
-      {data && <Home data={data.data}/> }
+      {isPostLoading ? <div>looooading</div> : <Home data={postStore.posts.data}/> }
     </div>
   );
 }
