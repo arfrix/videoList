@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Text.css';
 
 
@@ -26,5 +27,14 @@ export function Text({ size, color, children }) {
   );
 }
 
+Text.propTypes = {
+  size: PropTypes.string,
+  color: PropTypes.string,
+};
+
+Text.defaultProps = {
+  size: 'medium',
+  color: 'black',
+};
 
 export default Text;

@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from 'react'
-import Text from '../common/Text'
+import PropTypes from 'prop-types';
+import Text from '../Text'
 import classNames from 'classnames'
-import './Card.css'
+import './VideoCard.css'
 
 
-export default function Card({data, containerScrollTop, key}) {
+export default function VideoCard({data, containerScrollTop, key}) {
   const itemRef = useRef()
   const videoRef = useRef()
   const boxOffsetTop = itemRef.current ? itemRef.current.offsetTop : null
@@ -40,3 +41,9 @@ export default function Card({data, containerScrollTop, key}) {
     </div>
   )
 }
+
+
+VideoCard.propTypes = {
+  data: PropTypes.object.isRequired,
+  containerScrollTop: PropTypes.number.isRequired,
+};
