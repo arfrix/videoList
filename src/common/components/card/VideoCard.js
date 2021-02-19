@@ -9,7 +9,7 @@ export default function VideoCard({data, containerScrollTop}) {
   const cardRef = useRef()
   const videoRef = useRef()
   const cardOffsetTop = cardRef.current ? cardRef.current.offsetTop : null
-  const isOnProperPlaceToPlay = (cardOffsetTop - containerScrollTop) > 200 && (cardOffsetTop - containerScrollTop) < 400
+  const isOnProperPlaceToPlay = (cardOffsetTop - containerScrollTop) > 150 && (cardOffsetTop - containerScrollTop) < 400
   const videoWidth = window.innerWidth - 20
 
   useEffect(() => {
@@ -25,11 +25,11 @@ export default function VideoCard({data, containerScrollTop}) {
           <source src={data.attributes.preview_src} type="video/mp4"/>
         </video>
         ) : (
-        <img className="card__media__cover" src={data.attributes.small_poster} />
+        <img className="card__media__cover" src={data.attributes.small_poster} alt="video cover"/>
         )}
       </div>
       <div className="card__info row">
-        <img className="card__info__profilePic" src={data.attributes.profilePhoto} />
+        <img className="card__info__profilePic" src={data.attributes.profilePhoto} alt="profile picture" />
         <div className="card__info__videoDetails">
           <Text color="" size="">{data.attributes.title}</Text>
           <div className="row">

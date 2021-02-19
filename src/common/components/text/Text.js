@@ -15,7 +15,7 @@ export function Text({ size, color, children }) {
   };
 
   return (
-    <div
+    <p
       className="text-base"
       style={{
         fontSize: fontSize(),
@@ -23,7 +23,7 @@ export function Text({ size, color, children }) {
       }}
     >
       {children}
-    </div>
+    </p>
   );
 }
 
